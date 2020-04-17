@@ -28,4 +28,4 @@ driver.get(base_url + '/index.htm?pg=ad_S_restart.htm')
 driver.switch_to.frame('mainFrame')
 restart_button=driver.find_elements_by_name('restart')[0]
 
-print(restart_button)
+restart_button.click()
