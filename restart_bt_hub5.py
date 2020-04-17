@@ -1,7 +1,9 @@
+import time
 import argparse
 from selenium import webdriver
 
 parser = argparse.ArgumentParser(description='Restart BT Home Hub 5 Router')
+parser.add_argument('-d', '--dry_run', action='store_const', const=True, help='Do not restart, just check if elements are found properly')
 parser.add_argument('-p', '--admin_pass', type=str, nargs=1, help='Admin password of the router', required=True)
 parser.add_argument('base_url', type=str, nargs=1, help='Base URL of the router like http://192.168.0.1')
 args = parser.parse_args()
@@ -28,4 +30,12 @@ driver.get(base_url + '/index.htm?pg=ad_S_restart.htm')
 driver.switch_to.frame('mainFrame')
 restart_button=driver.find_elements_by_name('restart')[0]
 
-restart_button.click()
+if args.dry_run:
+    if restart_button:
+        print("Ready to restart")
+    else:
+        print("Something went wrong. Please check the URL and password.")
+else:
+    print("Restarting ...")
+    restart_button.click()
+    time.sleep(15)
