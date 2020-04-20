@@ -9,7 +9,7 @@ docker run --rm -w /usr/workspace -v $(pwd):/usr/workspace joyzoursky/python-chr
 ```
 
 ## Running on Raspberry Pi
-Follow the instructions [raspberry-pi-chromium-webdriver](https://github.com/ekinsokmen/raspberry-pi-chromium-webdriver) to build docker image compatible with raspberry pi.
+Follow the instructions on [raspberry-pi-chromium-webdriver](https://github.com/ekinsokmen/raspberry-pi-chromium-webdriver) to build docker image compatible with raspberry pi.
 
 Run similar command as above using the local docker image:
 ```
